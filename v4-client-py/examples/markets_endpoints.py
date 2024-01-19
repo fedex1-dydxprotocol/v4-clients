@@ -51,13 +51,20 @@ try:
     btc_market_orderbook_response = client.markets.get_perpetual_market_orderbook(MARKET_BTC_USD)
     print(btc_market_orderbook_response.data)
     btc_market_orderbook = btc_market_orderbook_response.data
+
     btc_market_orderbook_asks = btc_market_orderbook['asks']
-    btc_market_orderbook_bids = btc_market_orderbook['bids']
     if len(btc_market_orderbook_asks) > 0:
         btc_market_orderbook_asks_0 = btc_market_orderbook_asks[0]
-        print(btc_market_orderbook_asks_0)
+        print(f"btc_market_orderbook_asks_0: {btc_market_orderbook_asks_0}")
         btc_market_orderbook_asks_0_price = btc_market_orderbook_asks_0['price']
         btc_market_orderbook_asks_0_size = btc_market_orderbook_asks_0['size']
+
+    btc_market_orderbook_bids = btc_market_orderbook['bids']
+    if len(btc_market_orderbook_bids) > 0:
+        btc_market_orderbook_bids_0 = btc_market_orderbook_bids[0]
+        print(f"btc_market_orderbook_bids_0: {btc_market_orderbook_bids_0}")
+        btc_market_orderbook_bids_0_price = btc_market_orderbook_bids_0['price']
+        btc_market_orderbook_bids_0_size = btc_market_orderbook_bids_0['size']
 except:
     print('failed to get market orderbook')
 
